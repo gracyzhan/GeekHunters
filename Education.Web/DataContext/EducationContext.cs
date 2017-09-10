@@ -20,6 +20,9 @@ namespace Education.Web
         /// <summary>
         /// 公告表
         /// </summary>
-        public DbSet<Announcement> Announcement { set; get; } 
+        public DbSet<Announcement> Announcement { set; get; }
+
+        public DbSet<Skill> Skill { set; get; }
+
     }
 }

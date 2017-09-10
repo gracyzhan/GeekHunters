@@ -25,8 +25,14 @@ namespace Education.Web
         public int testSqlite()
         {
              
-            var list = MemberManager.GetMemberByName("admin");
-            return list.Count; 
+           // var list = MemberManager.GetMemberByName("admin");
+            using (EducationContext edm = new EducationContext())
+            {
+                var test = edm.Skill.FirstOrDefault();
+                Console.WriteLine(test.Name);
+            }
+
+            return 0; 
         }
         [HttpPost,ValidateAntiForgeryToken]
         public ActionResult Login(LoginEntity model)

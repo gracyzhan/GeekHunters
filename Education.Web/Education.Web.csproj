@@ -146,6 +146,7 @@
     <Compile Include="Models\Announcement.cs" />
     <Compile Include="Models\Article.cs" />
     <Compile Include="Models\LoginEntity.cs" />
+    <Compile Include="Models\Skill.cs" />
     <Compile Include="Models\Member.cs" />
     <Compile Include="Controllers\MemberController.cs" />
     <Compile Include="Models\RegisterEntity.cs" />
