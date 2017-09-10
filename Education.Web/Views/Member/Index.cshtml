@@ -1,0 +1,89 @@
+﻿@using Webdiyer.WebControls.Mvc
+@model Webdiyer.WebControls.Mvc.PagedList<Member>
+@{
+    ViewBag.Title = "会员列表";
+}
+@if (string.IsNullOrWhiteSpace(ViewBag.PermissionsErrorMessage + "") == false)
+{
+    <div id="wrap-all">
+        <div id="main">
+            <div class="login-wrap">
+
+                <div class="single-panel clearfix" style="min-height: 561px;">
+                    <div class="single-panel-inner middle" style="margin-top: 10px;">
+                        <div style="text-align: center">您没有管理会员的权限</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="container">
+
+        <h1 class="h3 page-header" style="margin-top: 10px;">会员管理</h1>
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th style="text-align: center;"><input name="all-select" type="checkbox" /></th>
+                    <th>账号</th>
+                    <th>昵称</th>
+                    <th>性别</th>
+                    <th>邮箱</th>
+                    <th>权限</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model == null || Model.Count <= 0)
+                {
+                    <tr><td colspan="7" style="text-align: center;">暂无记录</td></tr>
+                }
+                else
+                {
+                    foreach (var member in Model)
+                    {
+                        <tr>
+                            <td style="text-align: center;"><input type="checkbox" name="uid" /></td>
+                            <td>@member.Account</td>
+                            <td>@member.Nickname</td>
+                            <td>@(member.Sex != null ? (member.Sex == 1 ? "男" : "女") : "")</td>
+                            <td>@member.Email</td>
+                            <td>
+                                @if (member.Permissions == 0)
+                                {
+                                    @:普通会员
+                                }
+                                else if (member.Permissions == 1)
+                                {
+                                    @:高级会员
+                                }
+                                else if (member.Permissions == 2)
+                                {
+                                    @:管理员
+                                }
+                                else if (member.Permissions == 3)
+                                {
+                                    @:超级管理员
+                                }
+                            </td>
+                            <td><a href="@Url.Action("Edit", "Member", new {mid = member.MemberId})">编辑</a></td>
+                        </tr>
+                    }
+
+                }
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="7" style="text-align: center;">
+                        <ul class="pagination" role="navigation">
+                            @Html.Pager(Model, new PagerOptions { PageIndexParameterName = "page" })
+                        </ul>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+
+    </div>
+}

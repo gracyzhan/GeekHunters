@@ -1,0 +1,64 @@
+﻿@{
+    Member member = WebContext.GetCurrentMember();
+}
+<header id="masthead" class="navbar navbar-default navbar-fixed-top" role="banner">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".header-navbar-collapse">
+                <span class="sr-only">切换菜单</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/" rel="home">老顽童网站</a>
+        </div>
+
+        <nav id="navbar" class="collapse navbar-collapse" role="navigation">
+
+            <ul class="nav navbar-nav">
+                <li id="menu-item-5" class="active"><a title="首页" href="/">首页</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                @if (member == null)
+                {
+                    <li><a title="登录" href="@Url.Action("Login", "Account")">登录</a></li>
+                    <li><a title="注册" href="@Url.Action("Register", "Account")">注册</a></li>
+                }
+                else
+                {
+                    <li><a>欢迎您，</a></li>
+                    <li class="dropdown"><a title="@member.Account" href="#" data-toggle="dropdown"  class="dropdown-toggle" style="display: inline-block">@member.Account<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="@Url.Action("AboutMe","Home")">个人信息</a></li>
+                            @if (member.Permissions == 3)
+                            {
+                                <li><a href="@Url.Action("Index","Member")">会员管理</a></li>
+                            }
+                            @if (member.Permissions >= 1)
+                            {
+                                <li><a href="@Url.Action("AddArticle","Home")">发文章</a></li>
+                            }
+                            
+                        </ul>
+                    </li>
+                    <li><a href="@Url.Action("Logout","Account")" style="display: inline-block">退出</a></li>
+                }
+
+            </ul>
+        </nav><!-- #navbar -->
+    </div>
+</header>
+<!--[if lte IE 9]>
+<div id="warning_info" class="text-warning fade in mb_0" style="margin-top: 50px\9;*margin-top: 90px;padding: 5px 10px;">
+    <button data-dismiss="alert" class="close" type="button">×</button>
+    <strong>您正在使用低版本浏览器，</strong> 在本页面的显示效果可能有差异。
+    建议您升级到
+    <a href="http://www.google.cn/intl/zh-CN/chrome/" target="_blank">Chrome</a>
+    或以下浏览器：
+    <a href="http://www.mozilla.org/en-US/firefox/‎" target="_blank">Firefox</a> /
+    <a href="http://www.apple.com.cn/safari/" target="_blank">Safari</a> /
+    <a href="http://www.opera.com/" target="_blank">Opera</a> /
+    <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie" target="_blank">
+        Internet Explorer 10</a>
+</div>
+<![endif]-->

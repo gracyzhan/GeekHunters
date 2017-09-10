@@ -1,0 +1,141 @@
+﻿@model Education.Web.Member
+
+@{
+    ViewBag.Title = "个人信息";
+}
+@section HeaderStyle
+{
+    <link rel="stylesheet" href="@Url.Content("~/Content/login.css")" />
+}
+
+@section scripts
+{
+    <script type="text/javascript">
+        jQuery(function() {
+            $("form").submit(function() {
+                $("#Password").val("0000000000000000");
+            });
+        });
+    </script>
+}
+<div id="wrap-all">
+    <div id="main">
+        <div class="login-wrap">
+
+            <div class="single-panel clearfix" style="min-height: 561px;">
+                <div class="single-panel-inner middle" style="margin-top: 10px;">
+                    <div class="single-panel-header">
+                        <h3>我的个人信息</h3>
+                    </div>
+                    <div class="single-panel-body">
+                        <div class="single-panel-section">
+                            @using (Html.BeginForm("AboutMe", "Home", FormMethod.Post, new { @class = "form-horizontal wt-form ng-invalid" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                <div class="form-group">
+                                    <label class="col-xs-2 control-label">用户名：</label>
+                                    <div class="col-xs-10">
+                                        @Html.TextBoxFor(o => o.Account, new { @class = "form-control", placeholder = "你的用户名或常用邮箱地址", @readonly = "readonly"})
+
+                                    </div>
+                                </div>
+                            <div class="form-group">
+                                <label class="col-xs-2 control-label">@Html.DisplayNameFor(o => o.Password)：</label>
+                                <div class="col-xs-10">
+                                    <input type="password" name="Password" id="Password" value="" class="form-control"  placeholder="你的密码，如果不修改则不填" />
+                                </div>
+                            </div>
+                                <div class="form-group">
+                                    <label class="col-xs-2 control-label">@Html.DisplayNameFor(o => o.Nickname)：</label>
+                                    <div class="col-xs-10">
+                                        @Html.TextBoxFor(o => o.Nickname, new { @class = "form-control", placeholder = "你的昵称" })
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-xs-2 control-label">@Html.DisplayNameFor(o => o.Sex)：</label>
+                                    <div class="col-xs-10">
+                                        <label class="checkbox-inline">@Html.RadioButtonFor(o => o.Sex, "1") 男</label>&nbsp;&nbsp;&nbsp;
+                                        <label class="checkbox-inline">@Html.RadioButtonFor(o => o.Sex, "0") 女</label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-xs-2 control-label">@Html.DisplayNameFor(o => o.Blood)：</label>
+                                    <div class="col-xs-10">
+                                        @Html.DropDownListFor(o => o.Blood, new List<SelectListItem> { new SelectListItem { Text = "A", Value = "A" }, new SelectListItem { Text = "B", Value = "B" }, new SelectListItem { Text = "O", Value = "O" }, new SelectListItem { Text = "AB", Value = "AB" }, }, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-xs-2 control-label">@Html.DisplayNameFor(o => o.Email)：</label>
+                                    <div class="col-xs-10">
+                                        @Html.TextBoxFor(o => o.Email, new { @class = "form-control", placeholder = "您的常用邮箱" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-xs-2 control-label">@Html.DisplayNameFor(o => o.Blog)：</label>
+                                    <div class="col-xs-10">
+                                        @Html.TextBoxFor(o => o.Blog, new { @class = "form-control", placeholder = "您的博客地址" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-xs-2 control-label">@Html.DisplayNameFor(o => o.QqCode)：</label>
+                                    <div class="col-xs-10">
+                                        @Html.TextBoxFor(o => o.QqCode, new { @class = "form-control", placeholder = "您的QQ号" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-xs-2 control-label">@Html.DisplayNameFor(o => o.Birthday)：</label>
+                                    <div class="col-xs-10">
+                                        @Html.TextBoxFor(o => o.Birthday, new { @class = "form-control", placeholder = "您的生日" })
+                                    </div>
+                                </div>
+
+    <div class="form-group">
+        <label class="col-xs-2 control-label">@Html.DisplayNameFor(o => o.MyDescription)：</label>
+        <div class="col-xs-10">
+            @Html.TextAreaFor(o => o.MyDescription, new { @class = "form-control", placeholder = "您的生日" })
+        </div>
+    </div>
+                                if (string.IsNullOrWhiteSpace(ViewBag.ErrorMessage + "") == false)
+                                {
+                                    <div class="form-group">
+                                        <label class="col-xs-2 control-label"></label>
+                                        <div class="col-xs-10">
+                                            <div class="alert alert-danger">
+                                                <i class="icon-remove-sign mr_5"></i> @ViewBag.ErrorMessage
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                                if (string.IsNullOrWhiteSpace(ViewBag.Message + "") == false)
+                                {
+                                    <div class="form-group">
+                                        <label class="col-xs-2 control-label"></label>
+                                        <div class="col-xs-10">
+                                            <div class="alert alert-success">
+                                                <i class="icon-ok-sign mr_5"></i> @ViewBag.Message
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                                <div class="form-group">
+                                    <div class="col-xs-2"></div>
+                                    <div class="col-xs-10">
+                                        <button type="submit" class="btn btn-success">
+                                            保存
+                                        </button>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
