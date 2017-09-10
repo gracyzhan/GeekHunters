@@ -51,10 +51,10 @@ namespace Education.Web.Controllers
             {
 
                 db.Candidate.Add(model);
-                db.SaveChanges() ;
+                db.SaveChanges();
             }
 
-
+        }
 
 
     }
