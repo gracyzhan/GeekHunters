@@ -1,57 +1,32 @@
-﻿@using Webdiyer.WebControls.Mvc
-@model Webdiyer.WebControls.Mvc.PagedList<Article>
-@{
-    ViewBag.Title = "首页";
+﻿@{
+    ViewBag.Title = "Home Page";
 }
-<div class="container">
-    <h1 class="h3 page-header" style="margin-top: 10px;">最新文章</h1>
-    @if (Model == null || Model.Count <= 0)
-    {
-        <article id="post-891" class="panel panel-danger archive" data-post-id="891" role="main">
-            <div class="panel-body">
-                没有找到文章
-            </div>
-        </article>
-    }
-    else
-    {
-        Member member = WebContext.GetCurrentMember();
-        foreach (var article in Model)
-        {
-            <article id="post-891" class="panel panel-danger archive" data-post-id="891" role="main">
-                <div class="panel-body">
-                    <div class="entry-header page-header" style="margin-top: 20px;">
-                        <h3 class="h4">
-                            <a href="@Url.Action("Article","Home",new{id=article.ArticleId})" rel="bookmark">@article.Title</a>
-                        </h3>
-                        <div class="entry-meta clearfix">
-                            <span class="glyphicon glyphicon-user"></span> @(article.Author??"佚名")
-                            <span class="glyphicon glyphicon-time"></span> <time class="entry-date">@article.CreateTime.ToString("yyyy年MM月dd日")</time>
-                            @if (member != null && member.Permissions>0)
-                            {
-                                <span class="glyphicon glyphicon-folder-open"></span>
-                                <a href="@Url.Action("AddArticle","Home",new{id=article.ArticleId})" title="编辑" rel="category tag">编辑</a>
-                                using (Html.BeginForm("DelArticle", "Home", FormMethod.Post, new { style = "display:inline-block" }))
-                                {
-                                    <input type="hidden" name="id" value="@article.ArticleId" />
-                                    <span class="glyphicon glyphicon-remove"></span> <a href="javascript:;" onclick="delArticle()" title="删除" rel="category tag">删除</a>
-                                    <script type="text/javascript">
-                                    function delArticle() {
-                                        $("form").submit();
-                                    }
-                                    </script>
-                                }
-                            }
-                        </div>
-                    </div>
-                    <div class="entry-content">
-                        <p>@WebHelper.SubString(WebHelper.StripTags(article.Content),150) …</p>
-                    </div>
-                </div>
-            </article>
-        }
-        <ul class="pagination" role="navigation">
-            @Html.Pager(Model, new PagerOptions { PageIndexParameterName = "page"})
-        </ul>
-    }
+
+<div class="jumbotron">
+    <h1>Welcome to Geek Hunters</h1>
+
 </div>
+
+<div class="row">
+    <div class="col-md-12">
+        <h3> Using GRS a recruitment agent should be able to:</h3>
+    </div>
+</div>
+<div class="row">
+
+    <div class="col-md-4">
+        <h4>* Register a new candidate</h4>
+
+    </div>
+    <div class="col-md-4">
+        <h4>* View all candidates</h4>
+    </div>
+    <div class="col-md-4">
+        <h4>* Filter candidates</h4>
+    </div>
+</div>
+<p></p>
+<div class="well well-lg text-center">
+    <a href="/Demo/Demo" class="btn btn-link btn-lg">  Click to get start </a>
+</div>
+

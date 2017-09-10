@@ -23,6 +23,9 @@ namespace Education.Web
         public DbSet<Announcement> Announcement { set; get; }
 
         public DbSet<Skill> Skill { set; get; }
+        public DbSet<Candidate> Candidate { set; get; }
+        public DbSet<CandidateSkillSet> CandidateSkillSet { set; get; }
+
 
     }
 }
