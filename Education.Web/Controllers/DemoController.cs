@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Script.Serialization;
 
 namespace Education.Web.Controllers
 {
@@ -17,7 +18,7 @@ namespace Education.Web.Controllers
         }
 
         // GET: api/Skill
-        public IEnumerable<Skill> GetAllSkill()
+        public String GetAllSkill()
         {
             IEnumerable<Skill> skiils = new List<Skill>();
             using (EducationContext db = new EducationContext())
@@ -27,7 +28,24 @@ namespace Education.Web.Controllers
                 skiils = skiilQuery.ToList<Skill>();
             }
 
-            return skiils;
+            var json = new JavaScriptSerializer().Serialize(skiils);
+
+            return json;
+        }
+
+        // GET: api/Skill
+        public String GetAllSkillName()
+        {
+            IEnumerable<Skill> skiils = new List<Skill>();
+            using (EducationContext db = new EducationContext())
+            {
+                var skiilQuery = from s in db.Skill
+                                 select s;
+                skiils = skiilQuery.ToList<Skill>();
+            }
+
+            var nameStr = skiils.Select(s=> s.Name).ToArray();
+            return string.Join(",", nameStr);
         }
 
         // GET: api/Skill

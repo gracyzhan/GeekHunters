@@ -6,21 +6,16 @@
 <h2>Demo the skill set</h2>
 
 
-<div class="panel panel-default">
+<div class="panel panel-default"  ng-controller="skillController">
     <div class="panel-heading">Filter candidates </div>
     <div class="panel-body">
 
         <div class="row">
             <div class="col-xs-8">
-                <label class="checkbox-inline">
-                    <input type="checkbox" value="">C#
+                <label class="checkbox-inline" ng-repeat="skillObj in skillList">
+                    <input type="checkbox" value="{{skillObj.Id}}"> {{skillObj.Name}}
                 </label>
-                <label class="checkbox-inline">
-                    <input type="checkbox" value="">HTML
-                </label>
-                <label class="checkbox-inline">
-                    <input type="checkbox" value="">Sql
-                </label>
+                
             </div>
 
         </div>
