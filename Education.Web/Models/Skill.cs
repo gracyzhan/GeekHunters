@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data;
 
-namespace Education.Web
+namespace GracyDemoSkills.Web
 {
     [Table("Skill")]
     public class Skill

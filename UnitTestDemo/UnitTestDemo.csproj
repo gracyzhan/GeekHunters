@@ -76,9 +76,9 @@
     <Compile Include="UnitTestDemoController.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Education.Web\Education.Web.csproj">
+    <ProjectReference Include="..\Education.Web\GracyDemoSkills.csproj">
       <Project>{33f6b853-367c-427f-926d-a593aa6cbb6f}</Project>
-      <Name>Education.Web</Name>
+      <Name>GracyDemoSkills</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

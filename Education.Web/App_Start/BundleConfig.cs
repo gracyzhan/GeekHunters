@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace Education.Web
+namespace GracyDemoSkills.Web
 {
     public class BundleConfig
     {

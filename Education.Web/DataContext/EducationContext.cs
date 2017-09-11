@@ -4,7 +4,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
-namespace Education.Web
+namespace GracyDemoSkills.Web
 {
     public class EducationContext :DbContext
     {

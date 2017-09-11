@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Education.Web;
-using Education.Web.Controllers;
+using GracyDemoSkills.Web;
+using GracyDemoSkills.Web.Controllers;
 using System.Collections;
 using System.Collections.Generic;
 

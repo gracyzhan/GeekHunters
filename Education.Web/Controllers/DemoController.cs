@@ -4,8 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Script.Serialization;
-using Education.Web.Service;
-namespace Education.Web.Controllers
+using GracyDemoSkills.Web.Service;
+namespace GracyDemoSkills.Web.Controllers
 {
     public class DemoController : Controller
     {
