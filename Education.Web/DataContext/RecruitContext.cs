@@ -8,7 +8,7 @@ namespace GracyDemoSkills.Web
 {
     public class RecruitContext :DbContext
     {
-        public RecruitContext() : base("EducationStrings") { Database.SetInitializer<RecruitContext>(null); }
+        public RecruitContext() : base("GracyDemoSkillDbStrings") { Database.SetInitializer<RecruitContext>(null); }
 
         public DbSet<Skill> Skill { set; get; }
         public DbSet<Candidate> Candidate { set; get; }
