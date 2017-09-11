@@ -16,7 +16,12 @@ namespace GracyDemoSkills.Web.Service
                    + " as CandidateLastName from CandidateSkillSet inner join Skill a on CandidateSkillSet.SkillId = a.Id inner join Candidate b on CandidateSkillSet.CandidateId = b.Id ";
                 if (skillIds != null && skillIds.Length > 0)
                 {
-                    sql += " where CandidateSkillSet.SkillId in (" + string.Join (",",skillIds) + ") ";
+                    sql += " where b.ID in (select ID from Candidate can where 1=1  ";
+
+                    foreach (string skillId in skillIds) {
+                        sql += " and exists (select * from CandidateSkillSet subset where subset.CandidateId=can.Id and  subset.SkillId =" +skillId+ ") ";
+                            }
+                    sql += ")";
                 }
                  
                 var candidatesQuery = db.Database.SqlQuery<CandidateSkillSetDetail>(sql);
