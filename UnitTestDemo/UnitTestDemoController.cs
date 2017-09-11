@@ -12,8 +12,9 @@ namespace UnitTestDemo
         [TestMethod]
         public void TestGetAllSkill() 
         {
-            
-            Assert.IsFalse(string.IsNullOrEmpty(""));
+            DemoController demoCtrl = new DemoController();
+            var skills = demoCtrl.GetAllSkill();
+            Assert.IsTrue(string.IsNullOrEmpty(skills));
         }
     }
 }
