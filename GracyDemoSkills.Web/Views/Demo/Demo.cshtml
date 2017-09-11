@@ -1,0 +1,129 @@
+﻿
+@{
+    ViewBag.Title = "Demo the skill set";
+}
+
+<h2>Demo the skill set</h2>
+
+<div ng-controller="demoController">
+
+    <div class="panel panel-default">
+        <div class="panel-heading">Register a new candidate</div>
+        <div class="panel-body">
+            <div class="form-group row">
+                <div class="col-xs-2">
+                    <label for="ex1">Surname</label>
+                    <input class="form-control" id="ex1" type="text" ng-model="firstName">
+                </div>
+                <div class="col-xs-3">
+                    <label for="ex2">First Name</label>
+                    <input class="form-control" id="ex2" type="text" ng-model="lastName">
+                </div>
+                <div class="col-xs-4">
+                    <label for="ex3">Full Name</label>
+                    <input class="form-control" id="ex3" type="text" value="{{ fullName() }}">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2 " >
+                    <label> Skill</label>
+                </div>
+                <div class="col-xs-8">
+                    <label class="checkbox-inline" ng-repeat="skillObj in skillList">
+                        <input type="checkbox"  name="registCandidate{{$index + 1}}" value="{{skillObj.Id}}"> {{skillObj.Name}}
+                    </label>
+                </div>
+
+            </div>
+            <div class="row">
+                <p></p>
+                <div class="col-xs-12">
+                    <button type="button" class="btn btn-primary" ng-click="registCandidate()">Submit</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="row">
+                <p></p>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th width="170px">Firstname</th>
+                            <th width="170px">Lastname</th>
+                            <th>Full Name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                         
+
+                        <tr ng-repeat="candidateDetail in candidateList">
+                            <td> {{ candidateDetail.FirstName}} </td>
+                            <td> {{ candidateDetail.LastName}} </td>
+                            <td> {{ candidateDetail.FirstName}}   {{ (candidateDetail.FirstName == "" && candidateDetail.LastName == "")?"":"," }}   {{candidateDetail.LastName}} </td>
+
+                        </tr>
+                         
+                    </tbody>
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+   
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            &nbsp;
+            <div class="col-xs-3">
+                Filter candidates
+                </div>
+                <div class="col-xs-8">
+                    <label class="checkbox-inline" ng-repeat="skillObj in skillList">
+                        <input type="checkbox" ng-click="filterCandidate()" name="filterSkills{{$index + 1}}" value="{{skillObj.Id}}"> {{skillObj.Name}}
+                    </label>
+
+                </div>
+            </div>
+
+        <div class="panel-body">
+             
+            <div class="row">
+                <p></p>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th width="170px">Firstname</th>
+                            <th width="170px">Lastname</th>
+                            <th>Skill Set</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+
+
+                        <tr ng-repeat="candidateDetail in candidateDetailList">
+                            <td> {{ candidateDetail.CandidateFirstName}} </td>
+                            <td> {{ candidateDetail.CandidateLastName}} </td>
+                            <td> {{ candidateDetail.SkillName}} </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
