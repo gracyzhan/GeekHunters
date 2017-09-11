@@ -6,9 +6,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Education.Web
 {
-    interface  ICandidate
+    interface ICandidate
     {
-        int ID { get; set; }
+        Int64 Id { get; set; }
 
         [Required]
         [StringLength(50)]
@@ -19,12 +19,11 @@ namespace Education.Web
         [Column("FirstName")]
         [Display(Name = "First Name")]
         string FirstName { get; set; }
+        //[Display(Name = "Full Name")]
+        //string FullName
+        //{
+        //    get;
 
-        [Display(Name = "Full Name")]
-        string FullName
-        {
-            get;
-             
-        }
+        //}
     }
 }

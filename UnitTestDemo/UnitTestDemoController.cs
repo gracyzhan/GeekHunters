@@ -15,8 +15,8 @@ namespace UnitTestDemo
         public void TestGetAllSkill() 
         {
             DemoController demoController = new  DemoController();
-            var skills = demoController.GetAllSkill().ToList<Skill>();
-            Assert.AreNotEqual(0, skills.Count);
+            var skills = demoController.GetAllSkill();
+            Assert.IsFalse(string.IsNullOrEmpty(skills));
         }
     }
 }

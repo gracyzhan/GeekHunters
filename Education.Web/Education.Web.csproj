@@ -147,6 +147,7 @@
     <Compile Include="Models\Announcement.cs" />
     <Compile Include="Models\Article.cs" />
     <Compile Include="Models\Candidate.cs" />
+    <Compile Include="Models\CandidateSkillSetDetail.cs" />
     <Compile Include="Models\CandidateSkillSet.cs" />
     <Compile Include="Models\ICandidate.cs" />
     <Compile Include="Models\ICandidateSkillSet.cs" />
@@ -157,11 +158,16 @@
     <Compile Include="Controllers\MemberController.cs" />
     <Compile Include="Models\RegisterEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\CandidateService.cs" />
+    <Compile Include="Service\CandidateSkillSetDetailService.cs" />
+    <Compile Include="Service\CandidateSkillSetService.cs" />
+    <Compile Include="Service\SkillService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="AngularApp\RecruitsApp.js" />
     <Content Include="AngularApp\Recruits\ViewModels\candidateCtr.js" />
     <Content Include="AngularApp\Recruits\ViewModels\candidateSkillSetCtr.js" />
+    <Content Include="AngularApp\Recruits\ViewModels\demoCtr.js" />
     <Content Include="AngularApp\Recruits\ViewModels\skillCtr.js" />
     <Content Include="Content\base_common.css" />
     <Content Include="Content\base_outer.css" />
@@ -495,7 +501,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="DataContext\NewFolder1\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

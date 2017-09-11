@@ -22,14 +22,6 @@ namespace Education.Web
             get; set;
         }
 
-        public string SkillName
-        {
-            get;
-        }
-
-        public string CandidateName
-        {
-            get;
-        }
+        
     }
 }

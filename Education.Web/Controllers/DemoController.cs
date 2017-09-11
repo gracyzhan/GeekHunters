@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Script.Serialization;
-
+using Education.Web.Service;
 namespace Education.Web.Controllers
 {
     public class DemoController : Controller
@@ -21,57 +21,40 @@ namespace Education.Web.Controllers
         public String GetAllSkill()
         {
             IEnumerable<Skill> skiils = new List<Skill>();
-            using (EducationContext db = new EducationContext())
-            {
-                var skiilQuery = from s in db.Skill
-                             select s;
-                skiils = skiilQuery.ToList<Skill>();
-            }
-
+            //using (EducationContext db = new EducationContext())
+            //{
+            //    var skiilQuery = from s in db.Skill
+            //                 select s;
+            //    skiils = skiilQuery.ToList<Skill>();
+            //}
+            skiils = SkillService.QueryAllSkills();
             var json = new JavaScriptSerializer().Serialize(skiils);
-
             return json;
         }
 
         // GET: api/Skill
-        public String GetAllSkillName()
+        public String QueryCandidates()
         {
-            IEnumerable<Skill> skiils = new List<Skill>();
-            using (EducationContext db = new EducationContext())
-            {
-                var skiilQuery = from s in db.Skill
-                                 select s;
-                skiils = skiilQuery.ToList<Skill>();
-            }
-
-            var nameStr = skiils.Select(s=> s.Name).ToArray();
-            return string.Join(",", nameStr);
+            IEnumerable<Candidate> Candidates = new List<Candidate>();
+            Candidates = CandidateService.QueryAllCandidate();
+            var json = new JavaScriptSerializer().Serialize(Candidates);
+            return json;
         }
 
-        // GET: api/Skill
-        public IEnumerable<CandidateSkillSet> QueryCandidatesAndSkill(String skillSets)
-        {
-            IEnumerable<CandidateSkillSet> skiils = new List<CandidateSkillSet>();
-            using (EducationContext db = new EducationContext())
-            {
-                var skiilQuery = from s in db.CandidateSkillSet
-                                 select s;
-                skiils = skiilQuery.ToList<CandidateSkillSet>();
-            }
 
-            return skiils;
+        // GET: api/Skill
+        public String QueryCandidatesAndSkill(String skillSets)
+        {
+            IEnumerable<CandidateSkillSetDetail> Candidates = new List<CandidateSkillSetDetail>();
+            Candidates = CandidateSkillSetDetailService.QueryCandidateDetailViaSkills("");
+            var json = new JavaScriptSerializer().Serialize(Candidates);
+            return json;
         }
 
         // POST: api/Skill
         public void RegistCandidate(Candidate model)
         {
-            using (EducationContext db = new EducationContext())
-            {
-
-                db.Candidate.Add(model);
-                db.SaveChanges();
-            }
-
+           Boolean result =  CandidateService.RegistCandidate(model);
         }
 
 
