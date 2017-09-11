@@ -5,7 +5,7 @@ using System.Web;
 
 namespace GracyDemoSkills.Web 
 {
-    public class CandidateDetail  
+    public class CandidateDetail  : ICandidateDetail
     {
         public Candidate candidate { get; set; }
         public IEnumerable<Int64> SkillIds { set; get; }

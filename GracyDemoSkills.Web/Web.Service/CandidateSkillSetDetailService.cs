@@ -5,7 +5,7 @@ using System.Web;
 
 namespace GracyDemoSkills.Web.Service
 {
-    public class CandidateSkillSetDetailService
+    public class CandidateSkillSetDetailService : IGeneralService
     {
         public static IEnumerable<CandidateSkillSetDetail> QueryCandidateDetailViaSkills(string[] skillIds)
         {

@@ -5,14 +5,14 @@ using System.Web;
 
 namespace GracyDemoSkills.Web.Service
 {
-    public class CandidateService
+    public class CandidateService : IGeneralService
     {
         /// <summary>
         /// RegistCandidate
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        public static Boolean RegistCandidate(CandidateDetail model)
+        public static Boolean RegistCandidate(ICandidateDetail model)
         {
             Boolean opresult = false; 
             using (RecruitContext dbContext = new RecruitContext())

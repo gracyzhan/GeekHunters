@@ -8,7 +8,7 @@ using GracyDemoSkills.Web.Service;
 namespace UnitTestDemo
 {
     [TestClass]
-    public class UnitTestService
+    public class UnitTestCandidateService
     {
         [TestMethod]
         public void TestRegistCandidate()
@@ -24,5 +24,14 @@ namespace UnitTestDemo
             var result  =  CandidateService.RegistCandidate(detailModel);
             Assert.IsTrue(result);
         }
+
+        [TestMethod]
+        public void TestQueryAllCandidate()
+        {
+            //code for testing query 
+            //CandidateService.QueryAllCandidate();
+        }
+
+
     }
 }

@@ -14,7 +14,10 @@ namespace UnitTestDemo
         {
             DemoController demoCtrl = new DemoController();
             var skills = demoCtrl.GetAllSkill();
-            Assert.IsTrue(string.IsNullOrEmpty(skills));
+            Assert.IsFalse(string.IsNullOrEmpty(skills));
         }
+
+
+        
     }
 }

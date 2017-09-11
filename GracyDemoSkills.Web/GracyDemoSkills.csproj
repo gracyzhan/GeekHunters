@@ -135,6 +135,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Web.Models\Candidate.cs" />
+    <Compile Include="Web.Models\ICandidateDetail.cs" />
     <Compile Include="Web.Models\CandidateDetail.cs" />
     <Compile Include="Web.Models\CandidateSkillSetDetail.cs" />
     <Compile Include="Web.Models\CandidateSkillSet.cs" />
@@ -146,6 +147,8 @@
     <Compile Include="Web.Service\CandidateService.cs" />
     <Compile Include="Web.Service\CandidateSkillSetDetailService.cs" />
     <Compile Include="Web.Service\CandidateSkillSetService.cs" />
+    <Compile Include="Web.Service\IGeneralService.cs" />
+    <Compile Include="Web.Service\GeneralService.cs" />
     <Compile Include="Web.Service\SkillService.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -11,7 +11,7 @@ namespace GracyDemoSkills.Web
     
     interface  ISkill
     {
-    int ID { get; set; }
+    Int64 Id { get; set; }
     [Required]
     [StringLength(500)]
     [Display(Name = "Skill Name")]

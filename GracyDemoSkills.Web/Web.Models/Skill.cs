@@ -6,7 +6,7 @@ using System.Data;
 namespace GracyDemoSkills.Web
 {
     [Table("Skill")]
-    public class Skill
+    public class Skill : ISkill
     {
         public Int64 Id { set; get; }
         public String Name { set; get; }
