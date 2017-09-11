@@ -1,7 +1,6 @@
-﻿运行环境：
-		1、Windows Server 2008以及以上版本服务器
-		2、IIS7以上版本
-		3、需要安装.NET Framework 4.5
-		4、需要运行在IIS集成模式，需要支持MVC5.
+﻿1. The example dababase has been put in the folder: App_Data 
+2. Change the connectionString in web.configure in web project 
+3. change the connectionString in app.configure in unit test project 
 
-默认管理员：admin 密码：123456.
+
+ <add name="GracyDemoSkillDbStrings" providerName="System.Data.SQLite.EF6" connectionString="Data Source=C:\DonetDevelopment\InterViewProject\GeekHunter.sqlite;Pooling=True" />

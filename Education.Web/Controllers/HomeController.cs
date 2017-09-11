@@ -20,9 +20,9 @@ namespace GracyDemoSkills.Web
             return View();
         }
 
-        public ActionResult Demo()
+        public ActionResult Readme()
         {
-            ViewBag.Message = "Demo Page.";
+            ViewBag.Message = "About this project.";
 
             return View();
         }
