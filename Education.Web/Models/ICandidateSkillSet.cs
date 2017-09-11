@@ -7,8 +7,8 @@ namespace Education.Web
 {
     interface  ICandidateSkillSet
     {
-        int ID { get; set; }
-        int CandidateID { get; set; }
-        int SkillID { get; set; }
+        Int64 Id { get; set; }
+        Int64 CandidateId { get; set; }
+        Int64 SkillId { get; set; }
     }
 }

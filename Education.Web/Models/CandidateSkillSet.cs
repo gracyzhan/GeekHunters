@@ -2,22 +2,25 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 namespace Education.Web
 {
+    [Table("CandidateSkillSet")]
     public class CandidateSkillSet : ICandidateSkillSet
     {
-        public int CandidateID
+        public Int64 CandidateId
         {
             get; set;
         }
 
-        public int ID
+        [Key]
+        public Int64 Id
         {
             get; set;
         }
 
-        public int SkillID
+        public Int64 SkillId
         {
             get; set;
         }

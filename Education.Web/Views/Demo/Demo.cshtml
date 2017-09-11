@@ -31,7 +31,7 @@
                 </div>
                 <div class="col-xs-8">
                     <label class="checkbox-inline" ng-repeat="skillObj in skillList">
-                        <input type="checkbox" value="{{skillObj.Id}}"> {{skillObj.Name}}
+                        <input type="checkbox"  name="registCandidate{{$index + 1}}" value="{{skillObj.Id}}"> {{skillObj.Name}}
                     </label>
                 </div>
 
@@ -97,7 +97,34 @@
         <div class="panel-heading">
             View all candidates  <button type="button" class="btn btn-link">Clcik to show all candidates</button>
         </div>
-        <div class="panel-body">Panel Content</div>
+        <div class="panel-body">
+
+            <div class="row">
+                <p></p>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th width="170px">Firstname</th>
+                            <th width="170px">Lastname</th>
+                            <th>Skill Set</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+
+
+                        <tr ng-repeat="candidateDetail in candidateDetailList">
+                            <td> {{ candidateDetail.CandidateFirstName}} </td>
+                            <td> {{ candidateDetail.CandidateLastName}} </td>
+                            <td> {{ candidateDetail.SkillName}} </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+
+            </div>
+
+        </div>
 
     </div>
 

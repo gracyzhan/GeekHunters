@@ -30,16 +30,46 @@
         });
     }
    
+    //VALIDATION
+    function validateInput()
+    {
+        var checkedSkillCheckbox = $("input:checked[name^='registCandidate']");
+        if (checkedSkillCheckbox.length < 1) {
+            alert("Please at least choose one skill!");
+            return false;
+        }
 
+        if (vm.firstName == "" && vm.lastName == "")
+        {
+            alert("You mush input your first name or your last name!");
+            return false;
+        }
+
+        return true;
+    }
     vm.registCandidate = function () {
+        var checkedSkillCheckbox = $("input:checked[name^='registCandidate']");
+        //validation
+        if (!validateInput())
+        {
+            return;
+        }
+        var skillSet = [];
+        for (var j = 0; j < checkedSkillCheckbox.length ; j++)
+        {
+            skillSet.push ( $(checkedSkillCheckbox[j]).val() );
+        }
         var data = {
+            candidate: {
             firstName: vm.firstName,
-            lastName: vm.lastName
+            lastName: vm.lastName} ,
+            SkillIds: skillSet
         };
         $http.post('/Demo/RegistCandidate', data).then(
             function (successResponse) {
-                // alert("Success");
                 queryCandidateList($http);
+                queryCandidateDetailList($http);
+                alert("Success");
             },
             function (errorResponse) {
                 alert("Error");

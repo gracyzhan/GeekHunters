@@ -52,7 +52,7 @@ namespace Education.Web.Controllers
         }
 
         // POST: api/Skill
-        public void RegistCandidate(Candidate model)
+        public void RegistCandidate(CandidateDetail model)
         {
            Boolean result =  CandidateService.RegistCandidate(model);
         }

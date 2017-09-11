@@ -147,6 +147,7 @@
     <Compile Include="Models\Announcement.cs" />
     <Compile Include="Models\Article.cs" />
     <Compile Include="Models\Candidate.cs" />
+    <Compile Include="Models\CandidateDetail.cs" />
     <Compile Include="Models\CandidateSkillSetDetail.cs" />
     <Compile Include="Models\CandidateSkillSet.cs" />
     <Compile Include="Models\ICandidate.cs" />

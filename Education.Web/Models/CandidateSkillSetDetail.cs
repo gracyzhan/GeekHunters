@@ -5,22 +5,39 @@ using System.Web;
 
 namespace Education.Web 
 {
-    public class CandidateSkillSetDetail : CandidateSkillSet
+    public class CandidateSkillSetDetail  
     {
-        public string SkillName
+
+        public Int64 CandidateId
         {
-            get;
+            get; set;
+        }
+
+        public Int64 Id
+        {
+            get; set;
+        }
+
+        public Int64 SkillId
+        {
+            get; set;
         }
 
 
+        public string SkillName
+        {
+            get; set;
+
+        }
+
         public string CandidateFirstName
         {
-            get;
+            get; set;
         }
 
         public string CandidateLastName
         {
-            get;
+            get; set;
         }
     }
 }
