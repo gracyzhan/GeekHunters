@@ -21,8 +21,8 @@ namespace GracyDemoSkills.Web
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
           
-            //Database.SetInitializer(new EducationInitializer());
-            //Database.SetInitializer(new DropCreateDatabaseIfModelChanges<EducationContext>());
+            //Database.SetInitializer(new RecruitInitializer());
+            //Database.SetInitializer(new DropCreateDatabaseIfModelChanges<RecruitContext>());
             // RegisterSQLite();
         }
 

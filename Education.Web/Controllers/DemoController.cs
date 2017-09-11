@@ -21,7 +21,7 @@ namespace GracyDemoSkills.Web.Controllers
         public String GetAllSkill()
         {
             IEnumerable<Skill> skiils = new List<Skill>();
-            //using (EducationContext db = new EducationContext())
+            //using (RecruitContext db = new RecruitContext())
             //{
             //    var skiilQuery = from s in db.Skill
             //                 select s;

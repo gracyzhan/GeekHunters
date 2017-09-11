@@ -15,7 +15,7 @@ namespace GracyDemoSkills.Web.Service
         public static Boolean RegistCandidate(CandidateDetail model)
         {
             Boolean opresult = false; 
-            using (EducationContext dbContext = new EducationContext())
+            using (RecruitContext dbContext = new RecruitContext())
             {
                 dbContext.Candidate.Add(model.candidate);
                 dbContext.SaveChanges();
@@ -51,7 +51,7 @@ namespace GracyDemoSkills.Web.Service
         public static IEnumerable<Candidate> QueryAllCandidate()
         {
             IEnumerable<Candidate> candidates = new List<Candidate>();
-            using (EducationContext db = new EducationContext())
+            using (RecruitContext db = new RecruitContext())
             {
                 var candidatesQuery = from s in db.Candidate
                                  select s;

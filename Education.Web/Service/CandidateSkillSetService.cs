@@ -10,7 +10,7 @@ namespace GracyDemoSkills.Web.Service
         public static IEnumerable<CandidateSkillSet> QueryCandidateViaSkills(string skills)
         {
             IEnumerable<CandidateSkillSet> candidates = new List<CandidateSkillSet>();
-            using (EducationContext db = new EducationContext())
+            using (RecruitContext db = new RecruitContext())
             {
                 var candidatesQuery = from s in db.CandidateSkillSet
                                       select s;

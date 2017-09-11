@@ -6,9 +6,9 @@ using System.Web;
 
 namespace GracyDemoSkills.Web
 {
-    public class EducationContext :DbContext
+    public class RecruitContext :DbContext
     {
-        public EducationContext() : base("EducationStrings") { Database.SetInitializer<EducationContext>(null); }
+        public RecruitContext() : base("EducationStrings") { Database.SetInitializer<RecruitContext>(null); }
 
         public DbSet<Skill> Skill { set; get; }
         public DbSet<Candidate> Candidate { set; get; }

@@ -6,7 +6,7 @@ using System.Web;
 
 namespace GracyDemoSkills.Web
 {
-    public class EducationInitializer : DropCreateDatabaseIfModelChanges<EducationContext>  
+    public class RecruitInitializer : DropCreateDatabaseIfModelChanges<RecruitContext>  
     {
          
     }
