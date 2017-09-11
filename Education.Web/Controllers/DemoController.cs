@@ -41,12 +41,12 @@ namespace Education.Web.Controllers
             return json;
         }
 
-
+        
         // GET: api/Skill
-        public String QueryCandidatesAndSkill(String skillSets)
+        public String QueryCandidatesAndSkill(string[] skillSets)
         {
             IEnumerable<CandidateSkillSetDetail> Candidates = new List<CandidateSkillSetDetail>();
-            Candidates = CandidateSkillSetDetailService.QueryCandidateDetailViaSkills("");
+            Candidates = CandidateSkillSetDetailService.QueryCandidateDetailViaSkills(skillSets);
             var json = new JavaScriptSerializer().Serialize(Candidates);
             return json;
         }

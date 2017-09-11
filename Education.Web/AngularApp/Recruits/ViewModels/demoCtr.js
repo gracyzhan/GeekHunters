@@ -5,7 +5,7 @@
     vm.candidateList = [];
     vm.candidateDetailList = [];
     //properties for Candidate
-    vm.firstName = "";
+    vm.firstName = "-";
     vm.lastName = "";
     vm.fullName = function () {
         return vm.firstName + (vm.firstName == "" || vm.lastName == "" ? "" : ",") + vm.lastName;
@@ -24,12 +24,32 @@
         });
     }
 
-    var queryCandidateDetailList = function ($http) {
-        $http.get("/Demo/QueryCandidatesAndSkill").then(function (response) {
-            vm.candidateDetailList = response.data;
-        });
+    var queryCandidateDetailList = function ($http, skills) {
+        var data = {
+            skillSets: skills
+        }
+        //$http.get("/Demo/QueryCandidatesAndSkill", data).then(function (response) {
+        //    vm.candidateDetailList = response.data;
+        //});
+        $http({
+            url: "/Demo/QueryCandidatesAndSkill",
+            method: "GET",
+            params: { skillSets: skills }
+        }).then(function (response) {
+                vm.candidateDetailList = response.data;
+            });;
     }
-   
+    //ng-click="filterCandidate()" name="filterSkills
+    vm.filterCandidate =  function() {
+
+        var checkedSkillCheckbox = $("input:checked[name^='filterSkills']");
+        var skillFilters = [];
+        for (var j = 0; j < checkedSkillCheckbox.length ; j++) {
+            skillFilters.push($(checkedSkillCheckbox[j]).val());
+        }
+        queryCandidateDetailList($http, skillFilters);
+    }
+
     //VALIDATION
     function validateInput()
     {
@@ -47,6 +67,7 @@
 
         return true;
     }
+
     vm.registCandidate = function () {
         var checkedSkillCheckbox = $("input:checked[name^='registCandidate']");
         //validation
