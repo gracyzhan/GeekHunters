@@ -9,18 +9,6 @@ namespace Education.Web
     public class EducationContext :DbContext
     {
         public EducationContext() : base("EducationStrings") { Database.SetInitializer<EducationContext>(null); }
-        /// <summary>
-        /// 访问会员表
-        /// </summary>
-        public DbSet<Member> Member { set; get; }
-        /// <summary>
-        /// 文章表
-        /// </summary>
-        public DbSet<Article> Article { set; get; }
-        /// <summary>
-        /// 公告表
-        /// </summary>
-        public DbSet<Announcement> Announcement { set; get; }
 
         public DbSet<Skill> Skill { set; get; }
         public DbSet<Candidate> Candidate { set; get; }
